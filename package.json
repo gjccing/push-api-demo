@@ -1,0 +1,23 @@
+{
+  "name": "push-api-demo",
+  "version": "1.0.0",
+  "description": "This is an attempt to create a simple chatroom example to demonstrate the [Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API). It also illustrates some uses of [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), and how to use [Channel Messaging](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API) to communicate data between a Service Worker and the main window context.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server . -a localhost -p 443 -S && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjccing/push-api-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gjccing/push-api-demo/issues"
+  },
+  "homepage": "https://github.com/gjccing/push-api-demo#readme",
+  "dependencies": {
+    "web-push": "^1.0.2"
+  }
+}

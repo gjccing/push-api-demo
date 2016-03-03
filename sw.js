@@ -1,30 +1,17 @@
-var port;
 
 self.addEventListener('push', function(event) {
   var obj = event.data.json();
-
-  if(obj.action === 'subscribe' || obj.action === 'unsubscribe') {
-    fireNotification(obj, event);
-    port.postMessage(obj);
-  } else if(obj.action === 'init' || obj.action === 'chatMsg') {
-    port.postMessage(obj);
-  } 
+  fireNotification(obj, event);
 });
 
-self.onmessage = function(e) {
-  console.log(e);
-  port = e.ports[0];
-}
-
 function fireNotification(obj, event) {
-  var title = 'Subscription change';  
-  var body = obj.name + ' has ' + obj.action + 'd.'; 
-  var icon = 'push-icon.png';  
-  var tag = 'push';
-   
+  var title = obj.name;
+  var body = obj.msg || (obj.name + ' has ' + obj.action + 'd.');
+  var icon = 'push-icon.png';
+  var tag = obj.action+'-'+obj.name;
   event.waitUntil(self.registration.showNotification(title, {
-    body: body,  
-    icon: icon,  
-    tag: tag  
+    body: body,
+    icon: icon,
+    tag: tag
   }));
 }

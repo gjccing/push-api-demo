@@ -22,25 +22,6 @@ https.createServer(options, function (request, response) {
       var obj = JSON.parse(body);
       var bodyArray = [obj.statusType, obj.name, obj.endpoint];
       console.log('POSTed: ' + obj.statusType);
-      
-      // if(obj.statusType === 'dupeCheck') {
-      //   fs.readFile("endpoint.txt", function (err, buffer) {
-      //     var string = buffer.toString();
-      //     var array = string.split('\n');
-      //     for(i = 0; i < (array.length-1); i++) {
-      //       var subscriber = array[i].split(',');
-      //       console.log(subscriber[1]);
-      //       console.log(obj.name);
-      //       if(obj.name === subscriber[1]) {
-      //         console.log('dupe check true');
-      //         dupe = 'true';
-      //       } else {
-      //         console.log('dupe check false');
-      //         dupe = 'false';
-      //       }
-      //     }
-      //   });
-      // } else
 
       if(obj.statusType === 'chatMsg') {
         fs.readFile("endpoint.txt", function (err, buffer) {
@@ -107,16 +88,16 @@ https.createServer(options, function (request, response) {
                   if (err) throw err;
               });
             }
-              
+
           });
 
-        
+
       }
     });
 
 response.writeHead(200, {
   "Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "*", 
+  "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin, Access-Control-Allow-Headers"});
 
 response.write(dupe);
@@ -124,4 +105,4 @@ response.write(dupe);
 response.end();
 
 }).listen(7000);
-console.log("Server Running on 7000.");   
+console.log("Server Running on 7000.");

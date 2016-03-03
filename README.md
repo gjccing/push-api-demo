@@ -1,5 +1,11 @@
 # push-api-demo
 
+## Modify
+* Remove the Channel part then use notification display chat messages.
+* Add package.json & ssl key.
+* Change XMLHttpRequest to fetch.
+* Refactor `updateStatus`.
+
 This is an attempt to create a simple chatroom example to demonstrate the [Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API). It also illustrates some uses of [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), and how to use [Channel Messaging](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API) to communicate data between a Service Worker and the main window context.
 
 ## Current status
@@ -36,4 +42,3 @@ To get it running:
 7. Go back to the sample app and play with the subscribe/unsubscribe functionality and sending of chat messages. Monitor the browser console and terminal window (that the server is running in) to see what is happening. You will also see user information being written into, and removed from, the [endpoint.txt](https://github.com/chrisdavidmills/push-api-demo/blob/gh-pages/endpoint.txt) file as subscribe/unsubscribe commands are issued.
 
 Note: Some of the client-side code in this demo is heavily influenced by Matt Gaunt's excellent examples in [Push Notifications on the Open Web](http://updates.html5rocks.com/2015/03/push-notificatons-on-the-open-web). Thanks for the awesome work Matt!
-
